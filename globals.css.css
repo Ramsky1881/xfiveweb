@@ -1,0 +1,225 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --neon-cyan: #0ff;
+  --neon-pink: #f0f;
+  --neon-purple: #9467fe;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Cyberpunk Button Styles */
+.cyber-button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  color: var(--neon-cyan);
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: transparent;
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan), inset 0 0 10px var(--neon-cyan);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cyber-button:hover {
+  color: #000;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+}
+
+.cyber-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.cyber-button:hover:before {
+  left: 100%;
+}
+
+.cyber-button-sm {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+}
+
+.cyber-button-lg {
+  padding: 16px 32px;
+  font-size: 1.125rem;
+}
+
+/* Cyber Card Styles */
+.cyber-card {
+  background: rgba(30, 30, 50, 0.5);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-card:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff, #33ff99);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border-radius: 10px;
+}
+
+.cyber-card:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.cyber-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cyber-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.cyber-feature-card {
+  @apply cyber-card;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.cyber-feature-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Glitch Effect */
+.glitch-effect {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-effect:before,
+.glitch-effect:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-effect:before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00cc;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-animation 5s infinite linear alternate-reverse;
+}
+
+.glitch-effect:after {
+  left: -2px;
+  text-shadow: -2px 0 #00ffff;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-animation 3s infinite linear alternate-reverse;
+}
+
+/* Neon Text */
+.neon-text {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+}
+
+.neon-title {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 35px var(--neon-cyan);
+}
+
+/* Animations */
+@keyframes glitch-animation {
+  0% { clip: rect(42px, 9999px, 44px, 0); }
+  5% { clip: rect(12px, 9999px, 59px, 0); }
+  10% { clip: rect(48px, 9999px, 29px, 0); }
+  15% { clip: rect(42px, 9999px, 73px, 0); }
+  20% { clip: rect(63px, 9999px, 27px, 0); }
+  25% { clip: rect(34px, 9999px, 55px, 0); }
+  30% { clip: rect(86px, 9999px, 73px, 0); }
+  35% { clip: rect(20px, 9999px, 20px, 0); }
+  40% { clip: rect(26px, 9999px, 60px, 0); }
+  45% { clip: rect(25px, 9999px, 66px, 0); }
+  50% { clip: rect(57px, 9999px, 98px, 0); }
+  55% { clip: rect(5px, 9999px, 46px, 0); }
+  60% { clip: rect(82px, 9999px, 31px, 0); }
+  65% { clip: rect(54px, 9999px, 27px, 0); }
+  70% { clip: rect(28px, 9999px, 99px, 0); }
+  75% { clip: rect(45px, 9999px, 69px, 0); }
+  80% { clip: rect(23px, 9999px, 85px, 0); }
+  85% { clip: rect(54px, 9999px, 84px, 0); }
+  90% { clip: rect(45px, 9999px, 47px, 0); }
+  95% { clip: rect(24px, 9999px, 23px, 0); }
+  100% { clip: rect(32px, 9999px, 92px, 0); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scanline effect for cyberpunk feel */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.9);
+  animation: scanline 5s linear infinite;
+  z-index: 10;
+}
+
+@keyframes scanline {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
